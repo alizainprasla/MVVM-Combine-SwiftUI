@@ -8,10 +8,10 @@
 import Foundation
 
 class Coin: Identifiable, ObservableObject {
-    var id: String
-    var timestamp: TimeInterval
-    var open: String
-    var closed: String
+    @Published var id: String
+    @Published var timestamp: TimeInterval
+    @Published var open: String
+    @Published var closed: String
     
     init(id: String, timestamp: TimeInterval, open: String, closed: String) {
         self.id = id

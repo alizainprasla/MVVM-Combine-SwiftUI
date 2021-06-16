@@ -20,6 +20,7 @@ class BinanceWebSocketService {
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
         socket.delegate = self
+        socket.callbackQueue = DispatchQueue(label: "queue.socket.update", qos: .background, attributes: .concurrent, autoreleaseFrequency: .workItem, target: nil)
     }
     
     func connect() {

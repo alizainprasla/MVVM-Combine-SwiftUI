@@ -26,11 +26,6 @@ class CoinsViewModel: ObservableObject {
         socket.connect()
     }
     
-    func objectWillChange(coin: Coin, timestamp: TimeInterval){
-        objectWillChange.send()
-        coin.timestamp = timestamp
-    }
-    
     func eventUpdate(completion: @escaping (Coin) -> ()) {
         self.socket.socket.onEvent = { event in
             switch event {

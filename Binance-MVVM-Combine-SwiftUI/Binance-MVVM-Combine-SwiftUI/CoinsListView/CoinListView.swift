@@ -21,7 +21,13 @@ struct CoinListView: View {
                 viewModel.setPrepopulated()
                 viewModel.connectSocket()
                 viewModel.eventUpdate { (coin) in
-                    viewModel.coins = [coin]
+                    DispatchQueue.main.async {
+                        for (index, updateCoin) in viewModel.coins.enumerated() {
+                            if updateCoin.id == coin.id {
+                                viewModel.coins[index] = coin
+                            }
+                        }
+                    }
                 }
             })
         }
