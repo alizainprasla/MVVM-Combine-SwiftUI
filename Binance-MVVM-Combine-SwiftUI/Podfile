@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Binance-MVVM-Combine-SwiftUI' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Binance-MVVM-Combine-SwiftUI
+  pod 'Starscream', '~> 4.0.0'
+
+  target 'Binance-MVVM-Combine-SwiftUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Binance-MVVM-Combine-SwiftUIUITests' do
+    # Pods for testing
+  end
+
+end

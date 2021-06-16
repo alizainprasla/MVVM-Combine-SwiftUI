@@ -11,7 +11,10 @@ import SwiftUI
 struct Binance_MVVM_Combine_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let url = URL(string: "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade")!
+            let socket = BinanceWebSocketService(url: url)
+            let vm = CoinsViewModel(socket: socket)
+            CoinListView(viewModel: vm)
         }
     }
 }
