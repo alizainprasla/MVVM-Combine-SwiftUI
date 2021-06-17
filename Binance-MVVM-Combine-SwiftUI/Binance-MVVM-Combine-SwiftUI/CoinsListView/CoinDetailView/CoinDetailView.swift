@@ -12,10 +12,9 @@ struct CoinDetailView: View {
     @ObservedObject var coin: Coin
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(coin.id).bold()
-            Text("\(coin.open)")
-            
+        VStack(alignment: .leading, spacing: 8) {
+            Text(coin.id).font(.footnote)
+            Text("$\(coin.open)").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
         }
     }
 }
