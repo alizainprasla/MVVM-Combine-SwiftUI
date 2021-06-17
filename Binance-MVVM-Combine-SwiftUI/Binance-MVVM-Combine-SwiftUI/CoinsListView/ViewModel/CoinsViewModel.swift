@@ -18,8 +18,11 @@ class CoinsViewModel: ObservableObject {
     }
     
     func setPrepopulated() {
-        coins = [Coin(id: "TRXUSDT",timestamp: 0, open: "", closed: ""),
-                 Coin(id: "BTCUSDT", timestamp: 0, open: "", closed: "")]
+        let trxMapper = CoinMapper(todoMapperE: "aggTrade", e: 123456789, s: "TRXUSDT", a: 12345, p: "0.001", q: "100", f: 100, l: 105, t: 123456785, todoMapperM: true, m: true)
+        let btcMapper = CoinMapper(todoMapperE: "aggTrade", e: 123456789, s: "BTCUSDT", a: 12345, p: "0.001", q: "100", f: 100, l: 105, t: 123456785, todoMapperM: true, m: true)
+        
+        coins = [Coin(coinMapper: trxMapper),
+                 Coin(coinMapper: btcMapper)]
     }
     
     func connectSocket() {

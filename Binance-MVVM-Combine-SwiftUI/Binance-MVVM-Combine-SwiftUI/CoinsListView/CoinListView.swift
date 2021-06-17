@@ -10,22 +10,27 @@ import SwiftUI
 struct CoinListView: View {
     
     var socketService: BinanceWebSocketService!
-    
+    @State private var searchText = ""
     @ObservedObject var viewModel: CoinsViewModel
     
     var body: some View {
         NavigationView {
-            List(viewModel.coins) { coin in
-                CoinDetailView(coin: coin)
-                    .frame(maxWidth: .infinity)
-                    .padding(10)
-                    .background(Color(.systemGray6)) 
-                    .cornerRadius(8)
-            }.onAppear(perform: {
-                viewModel.setPrepopulated()
-                viewModel.connectSocket()
-            })
+            VStack {
+                Text("")
+                SearchBarView(text: $searchText)
+                    .navigationTitle("Coin List")
+                    .padding(.top, -20)
+                List(viewModel.coins.filter({searchText.isEmpty ? true : $0.id.contains(searchText)})) { coin in
+                    CoinDetailView(coin: coin)
+                }
+                .onAppear(perform: {
+                    viewModel.setPrepopulated()
+                    viewModel.connectSocket()
+                })
+                
+            }
         }
+        .navigationBarTitleDisplayMode(.large)
     }
     
     init(viewModel: CoinsViewModel) {
