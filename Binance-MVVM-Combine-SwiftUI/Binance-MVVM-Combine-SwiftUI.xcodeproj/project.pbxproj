@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27275E454F48E723D7BE0C4F /* Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3959802262B6436C54AA0A /* Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework */; };
 		3B73684EEE3A07CA1FC13EEF /* Pods_Binance_MVVM_Combine_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B725115BE20A69271170BD2A /* Pods_Binance_MVVM_Combine_SwiftUITests.framework */; };
+		9C802D2C267B43C1002A9890 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C802D2B267B43C1002A9890 /* SearchBarView.swift */; };
 		9EB4CA21267A4A8D00A10C8F /* BinanceWebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4CA20267A4A8D00A10C8F /* BinanceWebSocketService.swift */; };
 		9EB4CABB267A695E00A10C8F /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4CABA267A695E00A10C8F /* CoinDetailView.swift */; };
 		9EB4CAC0267A6A5000A10C8F /* CoinsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4CABF267A6A5000A10C8F /* CoinsViewModel.swift */; };
@@ -45,6 +46,7 @@
 		27758CD58AD31752AA4B6679 /* Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests/Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2788B5A7B99BE477AB53E48C /* Pods_Binance_MVVM_Combine_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Binance_MVVM_Combine_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F3959802262B6436C54AA0A /* Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C802D2B267B43C1002A9890 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		9EB4CA20267A4A8D00A10C8F /* BinanceWebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceWebSocketService.swift; sourceTree = "<group>"; };
 		9EB4CABA267A695E00A10C8F /* CoinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailView.swift; sourceTree = "<group>"; };
 		9EB4CABF267A6A5000A10C8F /* CoinsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsViewModel.swift; sourceTree = "<group>"; };
@@ -108,9 +110,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9C802D2A267B43A7002A9890 /* SearchBarView */ = {
+			isa = PBXGroup;
+			children = (
+				9C802D2B267B43C1002A9890 /* SearchBarView.swift */,
+			);
+			path = SearchBarView;
+			sourceTree = "<group>";
+		};
 		9EB4CAB8267A693600A10C8F /* CoinsListView */ = {
 			isa = PBXGroup;
 			children = (
+				9C802D2A267B43A7002A9890 /* SearchBarView */,
 				9EB4CACD267A6B8200A10C8F /* ViewModel */,
 				9EB4CAC4267A6B3700A10C8F /* Data */,
 				9EB4CAB9267A694200A10C8F /* CoinDetailView */,
@@ -454,6 +465,7 @@
 				9EB4CAC6267A6B5000A10C8F /* Coin.swift in Sources */,
 				9EDF57532678D298008F23F3 /* CoinListView.swift in Sources */,
 				9EB4CA21267A4A8D00A10C8F /* BinanceWebSocketService.swift in Sources */,
+				9C802D2C267B43C1002A9890 /* SearchBarView.swift in Sources */,
 				9EB4CABB267A695E00A10C8F /* CoinDetailView.swift in Sources */,
 				9EB4CAC0267A6A5000A10C8F /* CoinsViewModel.swift in Sources */,
 				9EDF57512678D298008F23F3 /* Binance_MVVM_Combine_SwiftUIApp.swift in Sources */,
@@ -616,7 +628,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Binance-MVVM-Combine-SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = PMB2M7NF76;
+				DEVELOPMENT_TEAM = MAQ324S6N9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Binance-MVVM-Combine-SwiftUI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -639,7 +651,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Binance-MVVM-Combine-SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = PMB2M7NF76;
+				DEVELOPMENT_TEAM = MAQ324S6N9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Binance-MVVM-Combine-SwiftUI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

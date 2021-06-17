@@ -10,27 +10,27 @@ import SwiftUI
 struct CoinListView: View {
     
     var socketService: BinanceWebSocketService!
-    
+    @State private var searchText = ""
     @ObservedObject var viewModel: CoinsViewModel
     
     var body: some View {
         NavigationView {
-            List(viewModel.coins) { coin in
-                CoinDetailView(coin: coin)
-            }.onAppear(perform: {
-                viewModel.setPrepopulated()
-                viewModel.connectSocket()
-                viewModel.eventUpdate { (coin) in
-                    DispatchQueue.main.async {
-                        for (index, updateCoin) in viewModel.coins.enumerated() {
-                            if updateCoin.id == coin.id {
-                                viewModel.coins[index] = coin
-                            }
-                        }
-                    }
+            VStack {
+                Text("")
+                SearchBarView(text: $searchText)
+                    .navigationTitle("Coin List")
+                    .padding(.top, -20)
+                List(viewModel.coins.filter({searchText.isEmpty ? true : $0.id.contains(searchText)})) { coin in
+                    CoinDetailView(coin: coin)
                 }
-            })
+                .onAppear(perform: {
+                    viewModel.setPrepopulated()
+                    viewModel.connectSocket()
+                })
+                
+            }
         }
+        .navigationBarTitleDisplayMode(.large)
     }
     
     init(viewModel: CoinsViewModel) {
@@ -45,7 +45,7 @@ struct CoinListView: View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
+struct CoinListView_Previews: PreviewProvider {
     static var previews: some View {
         let url = URL(string: "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade")!
         let socket = BinanceWebSocketService(url: url)
