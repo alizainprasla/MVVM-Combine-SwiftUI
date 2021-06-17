@@ -24,17 +24,25 @@ class CoinsViewModel: ObservableObject {
     
     func connectSocket() {
         socket.connect()
+        eventUpdate()
     }
     
-    func eventUpdate(completion: @escaping (Coin) -> ()) {
+    func eventUpdate() {
         self.socket.socket.onEvent = { event in
             switch event {
             case .text(let newText):
-                do {
-                    let coin = try JSONDecoder().decode(CoinMapper.self, from: newText.data(using: .utf8)!)
-                    completion(coin.toDomain())
-                } catch {
-                    print(error)
+                DispatchQueue.main.async {
+                    do {
+                        let coin = try JSONDecoder().decode(CoinMapper.self, from: newText.data(using: .utf8)!).toDomain()
+                        for (index, updateCoin) in self.coins.enumerated() {
+                            if updateCoin.id == coin.id {
+                                self.objectWillChange.send()
+                                self.coins[index] = coin
+                            }
+                        }
+                    } catch {
+                        print(error)
+                    }
                 }
                 break
             default:

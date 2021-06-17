@@ -17,18 +17,13 @@ struct CoinListView: View {
         NavigationView {
             List(viewModel.coins) { coin in
                 CoinDetailView(coin: coin)
+                    .frame(maxWidth: .infinity)
+                    .padding(10)
+                    .background(Color(.systemGray6)) 
+                    .cornerRadius(8)
             }.onAppear(perform: {
                 viewModel.setPrepopulated()
                 viewModel.connectSocket()
-                viewModel.eventUpdate { (coin) in
-                    DispatchQueue.main.async {
-                        for (index, updateCoin) in viewModel.coins.enumerated() {
-                            if updateCoin.id == coin.id {
-                                viewModel.coins[index] = coin
-                            }
-                        }
-                    }
-                }
             })
         }
     }
@@ -45,7 +40,7 @@ struct CoinListView: View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
+struct CoinListView_Previews: PreviewProvider {
     static var previews: some View {
         let url = URL(string: "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade")!
         let socket = BinanceWebSocketService(url: url)
