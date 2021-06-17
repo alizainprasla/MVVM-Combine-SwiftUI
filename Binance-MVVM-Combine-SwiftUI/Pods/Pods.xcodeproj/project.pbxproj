@@ -97,14 +97,14 @@
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		81F95157FC4CC8593A1B1E4607562122 /* FoundationHTTPServerHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FoundationHTTPServerHandler.swift; path = Sources/Framer/FoundationHTTPServerHandler.swift; sourceTree = "<group>"; };
 		85C44A9AB6F12498BFC8233B9D599206 /* Starscream-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Starscream-Info.plist"; sourceTree = "<group>"; };
-		891B2270823847ED23F2ECFC28F935EC /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		891B2270823847ED23F2ECFC28F935EC /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED9AF7BDFE0F03CE129D72D85FCA460 /* WSEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WSEngine.swift; path = Sources/Engine/WSEngine.swift; sourceTree = "<group>"; };
 		9357D61506695B4EDB5014C06BE56A43 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
 		9667CBCD9DF0ECA65AB92F3C19F5C59C /* Pods-Binance-MVVM-Combine-SwiftUI-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Binance-MVVM-Combine-SwiftUI-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9C5358DC08837F6D9CF0B4A361E2DE30 /* Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9FC0AD0195156A68C2C028F421920681 /* Pods_Binance_MVVM_Combine_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Binance_MVVM_Combine_SwiftUI.framework; path = "Pods-Binance-MVVM-Combine-SwiftUI.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A101502F92D8F66A940EF465348363FA /* Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework; path = "Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FC0AD0195156A68C2C028F421920681 /* Pods_Binance_MVVM_Combine_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Binance_MVVM_Combine_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A101502F92D8F66A940EF465348363FA /* Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2EAFCD04DEECC2AC6B8727048A80617 /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Compression/Compression.swift; sourceTree = "<group>"; };
 		A48D0F2C93EAE1B6F7C3855BA13D2016 /* Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Binance-MVVM-Combine-SwiftUI-Binance-MVVM-Combine-SwiftUIUITests-umbrella.h"; sourceTree = "<group>"; };
 		A5D311D7C3642519F9C645AB9C57DB68 /* Pods-Binance-MVVM-Combine-SwiftUI-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Binance-MVVM-Combine-SwiftUI-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		F09524AF54B5B7D61CA1707E51EA6AF2 /* Pods-Binance-MVVM-Combine-SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Binance-MVVM-Combine-SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F54559D03BD1ED30C8A2D9BE0D11C693 /* Pods-Binance-MVVM-Combine-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Binance-MVVM-Combine-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		F61F29839CDDC5BE3445417D2ABCB710 /* Pods-Binance-MVVM-Combine-SwiftUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Binance-MVVM-Combine-SwiftUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FBA97D2614A698F73D88A294F4315158 /* Pods_Binance_MVVM_Combine_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Binance_MVVM_Combine_SwiftUITests.framework; path = "Pods-Binance-MVVM-Combine-SwiftUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBA97D2614A698F73D88A294F4315158 /* Pods_Binance_MVVM_Combine_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Binance_MVVM_Combine_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +238,6 @@
 				8ED9AF7BDFE0F03CE129D72D85FCA460 /* WSEngine.swift */,
 				C34F19E6E210C87A192216575C48E771 /* Support Files */,
 			);
-			name = Starscream;
 			path = Starscream;
 			sourceTree = "<group>";
 		};
@@ -433,7 +432,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -721,7 +720,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Starscream/Starscream-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Starscream/Starscream-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -967,7 +966,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Starscream/Starscream-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Starscream/Starscream-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

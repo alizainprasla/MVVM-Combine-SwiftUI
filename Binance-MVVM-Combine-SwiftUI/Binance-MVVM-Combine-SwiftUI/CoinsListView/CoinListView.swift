@@ -16,18 +16,14 @@ struct CoinListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("")
                 SearchBarView(text: $searchText)
                     .navigationTitle("Coin List")
-                    .padding(.top, -20)
                 List(viewModel.coins.filter({searchText.isEmpty ? true : $0.id.contains(searchText)})) { coin in
                     CoinDetailView(coin: coin)
-                }
-                .onAppear(perform: {
+                }.onAppear(perform: {
                     viewModel.setPrepopulated()
                     viewModel.connectSocket()
                 })
-                
             }
         }
         .navigationBarTitleDisplayMode(.large)
