@@ -19,11 +19,11 @@ class Coin: Identifiable, ObservableObject {
     @Published var quantity: String
 
     init(coinMapper: CoinMapper) {
+        
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
-        
-        nf.maximumFractionDigits = 5
-        nf.minimumFractionDigits = 2
+        nf.maximumFractionDigits = 2
+        nf.decimalSeparator = "."
         
         let price = nf.number(from: coinMapper.p)?.stringValue ?? ""
         let volume = nf.number(from: coinMapper.q)?.stringValue ?? ""

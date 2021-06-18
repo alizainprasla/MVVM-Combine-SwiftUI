@@ -16,9 +16,8 @@ struct CoinListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView(text: $searchText)
-                    .navigationTitle("Coin List")
-                List(viewModel.coins.filter({searchText.isEmpty ? true : $0.id.contains(searchText)})) { coin in
+                SearchBarView(text: $searchText).navigationTitle("Coin List")
+                List(viewModel.getCoinData(query: searchText)) { coin in
                     CoinDetailView(coin: coin)
                 }.onAppear(perform: {
                     viewModel.setPrepopulated()
@@ -26,7 +25,7 @@ struct CoinListView: View {
                 })
             }
         }
-        .navigationBarTitleDisplayMode(.large)
+        
     }
     
     init(viewModel: CoinsViewModel) {
