@@ -37,7 +37,7 @@ class CoinsViewModel: ObservableObject {
     }
     
     private func filter(query: String) -> [Coin] {
-        coins.filter{ $0.id == query }
+        coins.filter{ $0.id.contains(query)  }
     }
     
     private func eventUpdate() {
