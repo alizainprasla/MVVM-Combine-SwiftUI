@@ -19,17 +19,23 @@ struct CoinListView: View {
                 SearchBarView(text: $searchText).navigationTitle("Coin List")
                 List(viewModel.getCoinData(query: searchText)) { coin in
                     CoinDetailView(coin: coin)
-                }.onAppear(perform: {
+
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .onAppear(perform: {
                     viewModel.setPrepopulated()
                     viewModel.connectSocket()
                 })
             }
+            .navigationBarHidden(true)
         }
         
     }
     
     init(viewModel: CoinsViewModel) {
         self.viewModel = viewModel
+        UITableView.appearance().tableFooterView = UIView()
+        UITableView.appearance().separatorStyle = .none
     }
     
     func setupViewModel() {
