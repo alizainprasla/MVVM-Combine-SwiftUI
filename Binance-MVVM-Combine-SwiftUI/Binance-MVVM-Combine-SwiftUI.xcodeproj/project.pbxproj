@@ -10,6 +10,7 @@
 		27275E454F48E723D7BE0C4F /* Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3959802262B6436C54AA0A /* Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework */; };
 		3B73684EEE3A07CA1FC13EEF /* Pods_Binance_MVVM_Combine_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B725115BE20A69271170BD2A /* Pods_Binance_MVVM_Combine_SwiftUITests.framework */; };
 		9C802D2C267B43C1002A9890 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C802D2B267B43C1002A9890 /* SearchBarView.swift */; };
+		9E9CDFDC2681CCB200783286 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CDFDB2681CCB200783286 /* TestView.swift */; };
 		9EB4CA21267A4A8D00A10C8F /* BinanceWebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4CA20267A4A8D00A10C8F /* BinanceWebSocketService.swift */; };
 		9EB4CABB267A695E00A10C8F /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4CABA267A695E00A10C8F /* CoinDetailView.swift */; };
 		9EB4CAC0267A6A5000A10C8F /* CoinsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4CABF267A6A5000A10C8F /* CoinsViewModel.swift */; };
@@ -47,6 +48,7 @@
 		2788B5A7B99BE477AB53E48C /* Pods_Binance_MVVM_Combine_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Binance_MVVM_Combine_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F3959802262B6436C54AA0A /* Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Binance_MVVM_Combine_SwiftUI_Binance_MVVM_Combine_SwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C802D2B267B43C1002A9890 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		9E9CDFDB2681CCB200783286 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		9EB4CA20267A4A8D00A10C8F /* BinanceWebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceWebSocketService.swift; sourceTree = "<group>"; };
 		9EB4CABA267A695E00A10C8F /* CoinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailView.swift; sourceTree = "<group>"; };
 		9EB4CABF267A6A5000A10C8F /* CoinsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				9EDF57592678D29A008F23F3 /* Info.plist */,
 				9EDF57562678D29A008F23F3 /* Preview Content */,
 				9EB4CA20267A4A8D00A10C8F /* BinanceWebSocketService.swift */,
+				9E9CDFDB2681CCB200783286 /* TestView.swift */,
 			);
 			path = "Binance-MVVM-Combine-SwiftUI";
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				9EDF57532678D298008F23F3 /* CoinListView.swift in Sources */,
 				9EB4CA21267A4A8D00A10C8F /* BinanceWebSocketService.swift in Sources */,
 				9C802D2C267B43C1002A9890 /* SearchBarView.swift in Sources */,
+				9E9CDFDC2681CCB200783286 /* TestView.swift in Sources */,
 				9EB4CABB267A695E00A10C8F /* CoinDetailView.swift in Sources */,
 				9EB4CAC0267A6A5000A10C8F /* CoinsViewModel.swift in Sources */,
 				9EDF57512678D298008F23F3 /* Binance_MVVM_Combine_SwiftUIApp.swift in Sources */,

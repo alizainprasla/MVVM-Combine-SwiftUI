@@ -20,7 +20,7 @@ struct CoinListView: View {
                 List(viewModel.getCoinData(query: searchText)) { coin in
                     CoinDetailView(coin: coin)
 
-                }
+                }.listStyle(PlainListStyle())
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .onAppear(perform: {
                     viewModel.setPrepopulated()
@@ -29,7 +29,6 @@ struct CoinListView: View {
             }
             .navigationBarHidden(true)
         }
-        
     }
     
     init(viewModel: CoinsViewModel) {
@@ -48,9 +47,12 @@ struct CoinListView: View {
 
 struct CoinListView_Previews: PreviewProvider {
     static var previews: some View {
-        let url = URL(string: "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade")!
-        let socket = BinanceWebSocketService(url: url)
-        let vm = CoinsViewModel(socket: socket)
-        CoinListView(viewModel: vm)
+        Group {
+            let url = URL(string: "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade")!
+            let socket = BinanceWebSocketService(url: url)
+            let vm = CoinsViewModel(socket: socket)
+            CoinListView(viewModel: vm)
+        }
+
     }
 }
