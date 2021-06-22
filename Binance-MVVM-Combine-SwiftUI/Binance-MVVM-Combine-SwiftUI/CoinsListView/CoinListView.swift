@@ -19,12 +19,10 @@ struct CoinListView: View {
             VStack {
                 SearchBarView(text: $searchText)
                 List(viewModel.getCoinData(query: searchText)) { coin in
-                    CoinDetailView(coin: coin)
-//                    NavigationLink(
-//                        destination: CoinDetailScreenView(coin: coin),
-//                        tag: coin,
-//                        selection: $defaultSelected,
-//                        label: { CoinDetailView(coin: coin) })
+                    NavigationLink(
+                        destination: CoinDetailScreenView(coin: coin)) {
+                        CoinDetailView(coin: coin)
+                    }
                 }
                 .listStyle(PlainListStyle())
                 .onAppear(perform: {

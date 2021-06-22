@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Coin: Identifiable, ObservableObject, Hashable {
+class Coin: Identifiable, ObservableObject {
     
     var coinMapper: CoinMapper
     
@@ -35,16 +35,6 @@ class Coin: Identifiable, ObservableObject, Hashable {
         self.lastTrade = coinMapper.l
         self.price = price //coinMapper.p
         self.quantity = volume //coinMapper.q
-    }
-    
-    // MARK: - Hashable Protocol
-    
-    static func == (lhs: Coin, rhs: Coin) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
     }
     
 }
