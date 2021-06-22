@@ -21,7 +21,6 @@ struct CoinListView: View {
                     CoinDetailView(coin: coin)
 
                 }.listStyle(PlainListStyle())
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .onAppear(perform: {
                     viewModel.setPrepopulated()
                     viewModel.connectSocket()

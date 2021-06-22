@@ -19,17 +19,12 @@ struct CoinDetailView: View {
                     .lineLimit(1)
                     .font(.footnote)
             }
-            
             Spacer()
-            
             VStack(alignment: .leading) {
                 Text(coin.price).bold().lineLimit(1)
                 Text("$\(coin.price)").lineLimit(1).font(.footnote)
             }
-            
             Spacer()
-            
-       
             Text("+0.02%")
                 .font(.subheadline)
                 .padding(EdgeInsets(top: 2, leading: 6, bottom: 2, trailing: 6))
@@ -38,6 +33,7 @@ struct CoinDetailView: View {
                 
         
         }
+        .background(Color.pink.ignoresSafeArea())
     }
 }
 
