@@ -11,6 +11,7 @@ struct CoinListView: View {
     
     var socketService: BinanceWebSocketService!
     @State private var searchText = ""
+    @State private var defaultSelected: Coin?
     @ObservedObject var viewModel: CoinsViewModel
     
     var body: some View {
@@ -18,15 +19,20 @@ struct CoinListView: View {
             VStack {
                 SearchBarView(text: $searchText).navigationTitle("Coin List")
                 List(viewModel.getCoinData(query: searchText)) { coin in
-                    CoinDetailView(coin: coin)
-
-                }.listStyle(PlainListStyle())
+                    NavigationLink(
+                        destination: CoinDetailScreenView(coin: coin),
+                        tag: coin,
+                        selection: $defaultSelected,
+                        label: { CoinDetailView(coin: coin) })
+                }
+                .listStyle(PlainListStyle())
                 .onAppear(perform: {
                     viewModel.setPrepopulated()
                     viewModel.connectSocket()
+                    //defaultSelected = viewModel.coins.first
                 })
+                .navigationBarHidden(true)
             }
-            .navigationBarHidden(true)
         }
     }
     

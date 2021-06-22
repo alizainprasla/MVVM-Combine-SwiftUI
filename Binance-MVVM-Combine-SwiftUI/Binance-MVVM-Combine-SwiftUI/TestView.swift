@@ -78,3 +78,14 @@ struct TestView_Previews: PreviewProvider {
         TestView().previewDevice("iPad (8th generation)")
     }
 }
+
+
+struct CoinDetailScreenView: View {
+    var coin: Coin
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0, content: {
+            Text(coin.id)
+            Text(coin.price)
+        })
+    }
+}

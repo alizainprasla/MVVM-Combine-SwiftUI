@@ -27,6 +27,10 @@ class BinanceWebSocketService {
         socket.connect()
     }
     
+    func disconnect() {
+        socket.disconnect()
+    }
+    
 }
 
 extension BinanceWebSocketService: WebSocketDelegate {

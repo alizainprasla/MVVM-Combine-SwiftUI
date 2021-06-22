@@ -15,8 +15,6 @@ struct Binance_MVVM_Combine_SwiftUIApp: App {
             let socket = BinanceWebSocketService(url: url)
             let vm = CoinsViewModel(socket: socket)
             CoinListView(viewModel: vm)
-            
-//            TestView()
         }
     }
 }

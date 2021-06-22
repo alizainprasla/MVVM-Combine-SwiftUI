@@ -31,6 +31,10 @@ class CoinsViewModel: ObservableObject {
         eventUpdate()
     }
     
+    func disconnectSocket() {
+        socket.disconnect()
+    }
+    
     func getCoinData(query: String) -> [Coin] {
         if query.isEmpty { return coins }
         return filter(query: query)
@@ -47,7 +51,7 @@ class CoinsViewModel: ObservableObject {
                     do {
                         let coin = try JSONDecoder().decode(CoinMapper.self, from: newText.data(using: .utf8)!).toDomain()
                         for (index, updateCoin) in self.coins.enumerated() {
-                            if updateCoin.id == coin.id {
+                            if updateCoin.id.lowercased() == coin.id.lowercased() {
                                 DispatchQueue.main.async {
                                     self.objectWillChange.send()
                                     self.coins[index] = coin
@@ -58,6 +62,10 @@ class CoinsViewModel: ObservableObject {
                     } catch {
                         print(error)
                     }
+                break
+            case .disconnected(let response, let status):
+                print("Response: \(response)")
+                print("Status: \(status)")
                 break
             default:
                 break

@@ -30,10 +30,7 @@ struct CoinDetailView: View {
                 .padding(EdgeInsets(top: 2, leading: 6, bottom: 2, trailing: 6))
                 .background(Color(.systemRed))
                 .cornerRadius(5)
-                
-        
         }
-        .background(Color.pink.ignoresSafeArea())
     }
 }
 
