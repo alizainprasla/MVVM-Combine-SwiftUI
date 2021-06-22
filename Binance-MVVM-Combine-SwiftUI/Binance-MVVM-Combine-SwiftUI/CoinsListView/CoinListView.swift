@@ -17,13 +17,14 @@ struct CoinListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView(text: $searchText).navigationTitle("Coin List")
+                SearchBarView(text: $searchText)
                 List(viewModel.getCoinData(query: searchText)) { coin in
-                    NavigationLink(
-                        destination: CoinDetailScreenView(coin: coin),
-                        tag: coin,
-                        selection: $defaultSelected,
-                        label: { CoinDetailView(coin: coin) })
+                    CoinDetailView(coin: coin)
+//                    NavigationLink(
+//                        destination: CoinDetailScreenView(coin: coin),
+//                        tag: coin,
+//                        selection: $defaultSelected,
+//                        label: { CoinDetailView(coin: coin) })
                 }
                 .listStyle(PlainListStyle())
                 .onAppear(perform: {

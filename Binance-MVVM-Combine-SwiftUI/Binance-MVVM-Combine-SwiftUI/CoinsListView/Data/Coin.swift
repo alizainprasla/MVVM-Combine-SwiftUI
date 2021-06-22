@@ -11,10 +11,6 @@ class Coin: Identifiable, ObservableObject, Hashable {
     
     var coinMapper: CoinMapper
     
-    var hashValue: Int {
-        coinMapper.s.hashValue
-    }
-    
     @Published var id: String
     @Published var timestamp: TimeInterval
     @Published var firstTrade: Int
@@ -44,7 +40,7 @@ class Coin: Identifiable, ObservableObject, Hashable {
     // MARK: - Hashable Protocol
     
     static func == (lhs: Coin, rhs: Coin) -> Bool {
-        lhs.id == rhs.id
+        return lhs.id == rhs.id
     }
     
     func hash(into hasher: inout Hasher) {
