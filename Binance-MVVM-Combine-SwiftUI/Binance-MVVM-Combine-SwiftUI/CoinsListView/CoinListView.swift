@@ -16,11 +16,14 @@ struct CoinListView: View {
     
     var body: some View {
         NavigationView {
+            
             VStack {
+                
                 SearchBarView(text: $searchText)
+                
                 List(viewModel.getCoinData(query: searchText)) { coin in
                     NavigationLink(
-                        destination: CoinDetailScreenView(coin: coin)) {
+                        destination: CoinDetailScreenView(coin: $defaultSelected)) {
                         CoinDetailView(coin: coin)
                     }
                 }
@@ -28,17 +31,16 @@ struct CoinListView: View {
                 .onAppear(perform: {
                     viewModel.setPrepopulated()
                     viewModel.connectSocket()
-                    //defaultSelected = viewModel.coins.first
+                    defaultSelected = viewModel.coins.first
                 })
                 .navigationBarHidden(true)
             }
+            
         }
     }
     
     init(viewModel: CoinsViewModel) {
         self.viewModel = viewModel
-        UITableView.appearance().tableFooterView = UIView()
-        UITableView.appearance().separatorStyle = .none
     }
     
     func setupViewModel() {
@@ -57,6 +59,6 @@ struct CoinListView_Previews: PreviewProvider {
             let vm = CoinsViewModel(socket: socket)
             CoinListView(viewModel: vm)
         }
-
+        
     }
 }

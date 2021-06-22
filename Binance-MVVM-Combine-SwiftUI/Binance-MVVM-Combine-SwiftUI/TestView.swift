@@ -81,11 +81,11 @@ struct TestView_Previews: PreviewProvider {
 
 
 struct CoinDetailScreenView: View {
-    var coin: Coin
+    @Binding var coin: Coin?
     var body: some View {
         VStack(alignment: .leading, spacing: 0, content: {
-            Text(coin.id)
-            Text(coin.price)
+            Text(coin?.id ?? "")
+            Text(coin?.price ?? "")
         })
     }
 }
