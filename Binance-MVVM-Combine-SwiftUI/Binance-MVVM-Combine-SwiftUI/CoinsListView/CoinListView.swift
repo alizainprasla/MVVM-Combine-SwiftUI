@@ -54,8 +54,8 @@ struct CoinListView: View {
 struct CoinListView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            let url = URL(string: "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade")!
-            let socket = BinanceWebSocketService(url: url)
+            let host = "wss://stream.binance.com:9443/ws/"
+            let socket = BinanceWebSocketService(host: host)
             let vm = CoinsViewModel(socket: socket)
             CoinListView(viewModel: vm)
         }

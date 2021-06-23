@@ -11,11 +11,36 @@ import Starscream
 
 class BinanceWebSocketService {
     
+    var host = "wss://stream.binance.com:9443/ws/"
     var url: URL
     var socket: WebSocket
+    static var coinNames: [String] = [
+            "TRXUSDT",
+            "BTCUSDT",
+            "DGBUSDT",
+            "XLMUSDT",
+            "DOTUSDT",
+            "LINKUSDT",
+            "ADAUSDT",
+            "LINKUSDT",
+            "CAKEUSDT",
+            "XRPUSDT",
+            "COTIUSDT",
+            "XRPUSDT"]
     
-    init(url: URL) {
-        self.url = url
+    init(host: String) {
+        
+        self.host = host
+        let coinsName = BinanceWebSocketService.coinNames
+        for (index, name) in coinsName.enumerated() {
+            if index == coinsName.count - 1 {
+                self.host.append("\(name.lowercased())@aggTrade")
+            } else {
+                self.host.append("\(name.lowercased())@aggTrade/")
+            }
+        }
+        
+        self.url = URL(string: self.host)!
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
