@@ -14,18 +14,19 @@ struct CoinListView: View {
     @State private var defaultSelected: Coin?
     @ObservedObject var viewModel: CoinsViewModel
     
+    init(viewModel: CoinsViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         NavigationView {
-            
             VStack {
-                
                 SearchBarView(text: $searchText)
-                
                 List(viewModel.getCoinData(query: searchText)) { coin in
                     NavigationLink(
                         destination: CoinDetailScreenView(coin: $defaultSelected)) {
-                        CoinDetailView(coin: coin)
-                    }
+                            CoinDetailView(coin: coin)
+                        }
                 }
                 .listStyle(PlainListStyle())
                 .onAppear(perform: {
@@ -35,18 +36,12 @@ struct CoinListView: View {
                 })
                 .navigationBarHidden(true)
             }
-            
         }
-    }
-    
-    init(viewModel: CoinsViewModel) {
-        self.viewModel = viewModel
     }
     
     func setupViewModel() {
         viewModel.setPrepopulated()
     }
-    
 }
 
 
@@ -59,6 +54,5 @@ struct CoinListView_Previews: PreviewProvider {
             let vm = CoinsViewModel(socket: socket)
             CoinListView(viewModel: vm)
         }
-        
     }
 }
