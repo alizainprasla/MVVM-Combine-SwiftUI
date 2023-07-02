@@ -25,7 +25,7 @@ class Coin: Identifiable, ObservableObject {
         nf.maximumFractionDigits = 2
         nf.decimalSeparator = "."
         
-        let price = nf.number(from: coinMapper.p)?.stringValue ?? ""
+        let price = nf.number(from: coinMapper.p)
         let volume = nf.number(from: coinMapper.q)?.stringValue ?? ""
         
         self.coinMapper = coinMapper
@@ -33,8 +33,8 @@ class Coin: Identifiable, ObservableObject {
         self.timestamp = coinMapper.t
         self.firstTrade = coinMapper.f
         self.lastTrade = coinMapper.l
-        self.price = price //coinMapper.p
-        self.quantity = volume //coinMapper.q
+        self.price = String(describing: price ?? 0)
+        self.quantity = volume
     }
     
 }

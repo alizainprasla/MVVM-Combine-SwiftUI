@@ -16,12 +16,12 @@ class CoinsViewModel: ObservableObject {
     
     init(socket: BinanceWebSocketService) {
         self.socket = socket
+        setPrepopulated()
+        connectSocket()
     }
     
     func setPrepopulated() {
-
         for coinName in BinanceWebSocketService.coinNames {
-            
             let mapper = CoinMapper(todoMapperE: "aggTrade",
                                     e: 123456789,
                                     s: coinName,
@@ -34,9 +34,7 @@ class CoinsViewModel: ObservableObject {
                                     todoMapperM: true,
                                     m: true)
             coins.append(Coin(coinMapper: mapper))
-            
         }
-    
     }
     
     func connectSocket() {
@@ -61,20 +59,20 @@ class CoinsViewModel: ObservableObject {
         self.socket.socket.onEvent = { event in
             switch event {
             case .text(let newText):
-                    do {
-                        let coin = try JSONDecoder().decode(CoinMapper.self, from: newText.data(using: .utf8)!).toDomain()
-                        for (index, updateCoin) in self.coins.enumerated() {
-                            if updateCoin.id.lowercased() == coin.id.lowercased() {
-                                DispatchQueue.main.async {
-                                    self.objectWillChange.send()
-                                    self.coins[index] = coin
-                                }
-                                break
+                do {
+                    let coin = try JSONDecoder().decode(CoinMapper.self, from: newText.data(using: .utf8)!).toDomain()
+                    for (index, updateCoin) in self.coins.enumerated() {
+                        if updateCoin.id.lowercased() == coin.id.lowercased() {
+                            DispatchQueue.main.async {
+                                self.objectWillChange.send()
+                                self.coins[index] = coin
                             }
+                            break
                         }
-                    } catch {
-                        print(error)
                     }
+                } catch {
+                    print(error)
+                }
                 break
             case .disconnected(let response, let status):
                 print("Response: \(response)")

@@ -17,7 +17,7 @@ struct Binance_MVVM_Combine_SwiftUIApp: App {
             let host = "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade"
             let socket = BinanceWebSocketService(host: host)
             let vm = CoinsViewModel(socket: socket)
-            CoinListView(viewModel: vm)
+            CryptoMarketView(viewModel: vm)
         }
     }
 }

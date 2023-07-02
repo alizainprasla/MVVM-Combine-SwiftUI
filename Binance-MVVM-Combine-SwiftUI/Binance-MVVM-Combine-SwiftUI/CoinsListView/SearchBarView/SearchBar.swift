@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchBarView: View {
+struct SearchBar: View {
     
     @Binding var text: String
     @State private var isEditing = false
@@ -57,8 +57,8 @@ struct SearchBarView: View {
     }
 }
 
-struct SearchBarView_Previews: PreviewProvider {
+struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBarView(text: .constant(""))
+        SearchBar(text: .constant(""))
     }
 }

@@ -10,10 +10,12 @@ import Starscream
 
 
 class BinanceWebSocketService {
+    private var host = "wss://stream.binance.com:9443/ws/"
     
-    var host = "wss://stream.binance.com:9443/ws/"
-    var url: URL
+    private var url: URL
+    
     var socket: WebSocket
+    
     static var coinNames: [String] = [
             "TRXUSDT",
             "BTCUSDT",
