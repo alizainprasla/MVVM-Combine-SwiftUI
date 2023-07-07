@@ -21,6 +21,8 @@
 		9EDF57582678D29A008F23F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDF57572678D29A008F23F3 /* Preview Assets.xcassets */; };
 		9EDF57632678D29B008F23F3 /* Binance_MVVM_Combine_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDF57622678D29B008F23F3 /* Binance_MVVM_Combine_SwiftUITests.swift */; };
 		9EDF576E2678D29B008F23F3 /* Binance_MVVM_Combine_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDF576D2678D29B008F23F3 /* Binance_MVVM_Combine_SwiftUIUITests.swift */; };
+		9EED9AB72A5244F000D196C6 /* BinanceTickerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EED9AB62A5244F000D196C6 /* BinanceTickerUseCase.swift */; };
+		9EED9AB92A52452F00D196C6 /* BinanceDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EED9AB82A52452F00D196C6 /* BinanceDataConverter.swift */; };
 		B4B595064D722FB2B157F21A /* Pods_Binance_MVVM_Combine_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2788B5A7B99BE477AB53E48C /* Pods_Binance_MVVM_Combine_SwiftUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		9EDF57692678D29B008F23F3 /* Binance-MVVM-Combine-SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Binance-MVVM-Combine-SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDF576D2678D29B008F23F3 /* Binance_MVVM_Combine_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binance_MVVM_Combine_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		9EDF576F2678D29B008F23F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EED9AB62A5244F000D196C6 /* BinanceTickerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceTickerUseCase.swift; sourceTree = "<group>"; };
+		9EED9AB82A52452F00D196C6 /* BinanceDataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinanceDataConverter.swift; sourceTree = "<group>"; };
 		A771C2DE9CEC1D49DC4519FE /* Pods-Binance-MVVM-Combine-SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Binance-MVVM-Combine-SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-Binance-MVVM-Combine-SwiftUITests/Pods-Binance-MVVM-Combine-SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B2AD312CA61E8F5354C97011 /* Pods-Binance-MVVM-Combine-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Binance-MVVM-Combine-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Binance-MVVM-Combine-SwiftUI/Pods-Binance-MVVM-Combine-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		B725115BE20A69271170BD2A /* Pods_Binance_MVVM_Combine_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Binance_MVVM_Combine_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +127,7 @@
 		9EB4CAB8267A693600A10C8F /* CoinsListView */ = {
 			isa = PBXGroup;
 			children = (
+				9EED9AB52A5244D500D196C6 /* Binance */,
 				9C802D2A267B43A7002A9890 /* SearchBarView */,
 				9EB4CACD267A6B8200A10C8F /* ViewModel */,
 				9EB4CAC4267A6B3700A10C8F /* Data */,
@@ -216,6 +221,15 @@
 				9EDF576F2678D29B008F23F3 /* Info.plist */,
 			);
 			path = "Binance-MVVM-Combine-SwiftUIUITests";
+			sourceTree = "<group>";
+		};
+		9EED9AB52A5244D500D196C6 /* Binance */ = {
+			isa = PBXGroup;
+			children = (
+				9EED9AB62A5244F000D196C6 /* BinanceTickerUseCase.swift */,
+				9EED9AB82A52452F00D196C6 /* BinanceDataConverter.swift */,
+			);
+			path = Binance;
 			sourceTree = "<group>";
 		};
 		A34026D0B994D1A63AE854E0 /* Frameworks */ = {
@@ -468,9 +482,11 @@
 				9EB4CAC6267A6B5000A10C8F /* Coin.swift in Sources */,
 				9EDF57532678D298008F23F3 /* CryptoMarketView.swift in Sources */,
 				9EB4CA21267A4A8D00A10C8F /* BinanceWebSocketService.swift in Sources */,
+				9EED9AB92A52452F00D196C6 /* BinanceDataConverter.swift in Sources */,
 				9C802D2C267B43C1002A9890 /* SearchBar.swift in Sources */,
 				9E9CDFDC2681CCB200783286 /* TestView.swift in Sources */,
 				9EB4CABB267A695E00A10C8F /* CoinDetailView.swift in Sources */,
+				9EED9AB72A5244F000D196C6 /* BinanceTickerUseCase.swift in Sources */,
 				9EB4CAC0267A6A5000A10C8F /* CoinsViewModel.swift in Sources */,
 				9EDF57512678D298008F23F3 /* Binance_MVVM_Combine_SwiftUIApp.swift in Sources */,
 			);

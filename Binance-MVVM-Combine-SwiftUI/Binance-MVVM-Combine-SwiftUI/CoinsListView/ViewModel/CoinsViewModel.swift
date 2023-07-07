@@ -12,16 +12,24 @@ class CoinsViewModel: ObservableObject {
     
     @Published var coins = [Coin]()
     
-    var socket: BinanceWebSocketService
+    var useCase: TickerUseCase
     
-    init(socket: BinanceWebSocketService) {
-        self.socket = socket
+    private var cancellables = Set<AnyCancellable>()
+    
+    var coinNames: [String] = [
+        "TRXUSDT",
+        "BTCUSDT",
+        "DGBUSDT",
+        "XLMUSDT"]
+    
+    init(useCase: TickerUseCase) {
+        self.useCase = useCase
         setPrepopulated()
         connectSocket()
     }
     
     func setPrepopulated() {
-        for coinName in BinanceWebSocketService.coinNames {
+        for coinName in coinNames {
             let mapper = CoinMapper(todoMapperE: "aggTrade",
                                     e: 123456789,
                                     s: coinName,
@@ -38,12 +46,12 @@ class CoinsViewModel: ObservableObject {
     }
     
     func connectSocket() {
-        socket.connect()
+        useCase.start()
         eventUpdate()
     }
     
     func disconnectSocket() {
-        socket.disconnect()
+        useCase.stop()
     }
     
     func getCoinData(query: String) -> [Coin] {
@@ -56,32 +64,17 @@ class CoinsViewModel: ObservableObject {
     }
     
     private func eventUpdate() {
-        self.socket.socket.onEvent = { event in
-            switch event {
-            case .text(let newText):
-                do {
-                    let coin = try JSONDecoder().decode(CoinMapper.self, from: newText.data(using: .utf8)!).toDomain()
-                    for (index, updateCoin) in self.coins.enumerated() {
-                        if updateCoin.id.lowercased() == coin.id.lowercased() {
-                            DispatchQueue.main.async {
-                                self.objectWillChange.send()
-                                self.coins[index] = coin
-                            }
-                            break
-                        }
-                    }
-                } catch {
-                    print(error)
-                }
-                break
-            case .disconnected(let response, let status):
-                print("Response: \(response)")
-                print("Status: \(status)")
-                break
-            default:
-                break
-            }
-        }
+        useCase
+            .coinPublisher
+            .sink(receiveValue: updateCoins(updatedCoin:))
+            .store(in: &cancellables)
+        
     }
     
+    private func updateCoins(updatedCoin: Coin) {
+        guard let index = coins.firstIndex(where: { $0.id.lowercased() == updatedCoin.id.lowercased() }) else { return }
+        
+        self.objectWillChange.send()
+        self.coins[index] = updatedCoin
+    }
 }

@@ -7,86 +7,58 @@
 
 import Foundation
 import Starscream
+import Combine
 
+protocol SocketClient {
+    var textEventPublisher: AnyPublisher<String, Never> { get }
+    func connect()
+    func disconnect()
+}
 
-class BinanceWebSocketService {
-    private var host = "wss://stream.binance.com:9443/ws/"
+class StarscreamSocketClient: SocketClient {
+    private(set) var socket: WebSocket?
     
-    private var url: URL
+    private var host: String
     
-    var socket: WebSocket
+    private var eventSubject = PassthroughSubject<WebSocketEvent, Never>()
     
-    static var coinNames: [String] = [
-            "TRXUSDT",
-            "BTCUSDT",
-            "DGBUSDT",
-            "XLMUSDT",
-            "DOTUSDT",
-            "LINKUSDT",
-            "ADAUSDT",
-            "LINKUSDT",
-            "CAKEUSDT",
-            "XRPUSDT",
-            "COTIUSDT",
-            "XRPUSDT"]
+    var textEventPublisher: AnyPublisher<String, Never> {
+        eventSubject
+            .compactMap { event -> String? in
+                if case let .text(value) = event {
+                    return value
+                }
+                return nil
+            }
+            .eraseToAnyPublisher()
+    }
     
     init(host: String) {
-        
         self.host = host
-        let coinsName = BinanceWebSocketService.coinNames
-        for (index, name) in coinsName.enumerated() {
-            if index == coinsName.count - 1 {
-                self.host.append("\(name.lowercased())@aggTrade")
-            } else {
-                self.host.append("\(name.lowercased())@aggTrade/")
-            }
-        }
-        
-        self.url = URL(string: self.host)!
+        buildWebSocket()
+    }
+    
+    private func buildWebSocket() {
+        let url = URL(string: host)!
+        print(url)
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
-        socket.delegate = self
-        socket.callbackQueue = DispatchQueue(label: "queue.socket.update", qos: .background, attributes: .concurrent, autoreleaseFrequency: .workItem, target: nil)
+        socket?.delegate = self
+        socket?.callbackQueue = DispatchQueue(label: "queue.socket.update", qos: .background, attributes: .concurrent, autoreleaseFrequency: .workItem, target: nil)
     }
     
     func connect() {
-        socket.connect()
+        socket?.connect()
     }
     
     func disconnect() {
-        socket.disconnect()
+        socket?.disconnect()
     }
-    
 }
 
-extension BinanceWebSocketService: WebSocketDelegate {
-    
+extension StarscreamSocketClient: WebSocketDelegate {
     func didReceive(event: WebSocketEvent, client: WebSocket) {
-        print("connected \(event)")
-        switch event {
-        case .connected(_):
-            break
-        case .disconnected(_, _):
-            break
-        case .text(_):
-            break
-        case .binary(_):
-            break
-        case .pong(_):
-            break
-        case .ping(_):
-            break
-        case .error(_):
-            break
-        case .viabilityChanged(_):
-            break
-        case .reconnectSuggested(_):
-            break
-        case .cancelled:
-            break
-        }
+        eventSubject.send(event)
     }
-
 }
-

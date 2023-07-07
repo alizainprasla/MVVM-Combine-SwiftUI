@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Starscream
 
 @main
 struct Binance_MVVM_Combine_SwiftUIApp: App {
@@ -15,8 +16,11 @@ struct Binance_MVVM_Combine_SwiftUIApp: App {
             //wss://stream.binance.com:9443/ws/TRXUSDT@aggTrade/BTCUSDT@aggTrade/DGBUSDT@aggTrade/XLMUSDT@aggTrade/DOTUSDT@aggTrade/LINKUSDT@aggTrade/ADAUSDT@aggTrade/LINKUSDT@aggTrade/CAKEUSDT@aggTrade/XRPUSDT@aggTrade/COTIUSDT@aggTrade/XRPUSDT@aggTrade/
             
             let host = "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade"
-            let socket = BinanceWebSocketService(host: host)
-            let vm = CoinsViewModel(socket: socket)
+            let client = StarscreamSocketClient(host: host)
+            let dataConverter = BinanceDataConverter()
+            let tickerUseCase = BinanceTickerUseCase(service: client,
+                                 dataConverter: dataConverter)
+            let vm = CoinsViewModel(useCase: tickerUseCase)
             CryptoMarketView(viewModel: vm)
         }
     }

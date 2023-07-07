@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct CryptoMarketView: View {
-    private var socketService: BinanceWebSocketService!
-    
+
     @State private var searchText = ""
     
     @State private var defaultSelected: Coin?
@@ -42,9 +41,12 @@ struct CryptoMarketView: View {
 struct CryptoMarketView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            let host = "wss://stream.binance.com:9443/ws/"
-            let socket = BinanceWebSocketService(host: host)
-            let vm = CoinsViewModel(socket: socket)
+            let host = "wss://stream.binance.com:9443/ws/trxusdt@aggTrade/btcusdt@aggTrade"
+            let client = StarscreamSocketClient(host: host)
+            let dataConverter = BinanceDataConverter()
+            let tickerUseCase = BinanceTickerUseCase(service: client,
+                                 dataConverter: dataConverter)
+            let vm = CoinsViewModel(useCase: tickerUseCase)
             CryptoMarketView(viewModel: vm)
         }
     }
