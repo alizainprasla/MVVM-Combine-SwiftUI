@@ -40,7 +40,6 @@ class StarscreamSocketClient: SocketClient {
     
     private func buildWebSocket() {
         let url = URL(string: host)!
-        print(url)
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
