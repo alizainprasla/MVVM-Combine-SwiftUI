@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9C802D2C267B43C1002A9890 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C802D2B267B43C1002A9890 /* SearchBar.swift */; };
+		9E5AD2F22AE11AD20079F792 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 9E5AD2F12AE11AD20079F792 /* Starscream */; };
 		9E9CDFDC2681CCB200783286 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CDFDB2681CCB200783286 /* TestView.swift */; };
 		9EB4CA21267A4A8D00A10C8F /* BinanceWebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4CA20267A4A8D00A10C8F /* BinanceWebSocketService.swift */; };
 		9EB4CABB267A695E00A10C8F /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4CABA267A695E00A10C8F /* CoinDetailView.swift */; };
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5AD2F22AE11AD20079F792 /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +228,9 @@
 			dependencies = (
 			);
 			name = "Binance-MVVM-Combine-SwiftUI";
+			packageProductDependencies = (
+				9E5AD2F12AE11AD20079F792 /* Starscream */,
+			);
 			productName = "Binance-MVVM-Combine-SwiftUI";
 			productReference = 9EDF574D2678D298008F23F3 /* Binance-MVVM-Combine-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -297,6 +302,9 @@
 				Base,
 			);
 			mainGroup = 9EDF57442678D298008F23F3;
+			packageReferences = (
+				9E5AD2F02AE11AD20079F792 /* XCRemoteSwiftPackageReference "Starscream" */,
+			);
 			productRefGroup = 9EDF574E2678D298008F23F3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -668,6 +676,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9E5AD2F02AE11AD20079F792 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9E5AD2F12AE11AD20079F792 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E5AD2F02AE11AD20079F792 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9EDF57452678D298008F23F3 /* Project object */;
 }
